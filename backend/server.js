@@ -7,7 +7,7 @@ const app = express();
 // Lista de origens permitidas
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://gerenciamento-de-tarefas-to-do-list.vercel.app'  // Adicione seu domínio da Vercel aqui
+  'https://todo-list-cvvv6pjt6-matheus-gouveas-projects-e057f93a.vercel.app/'  // Adicione seu domínio da Vercel aqui
 ];
 
 // Configuração CORS
