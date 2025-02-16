@@ -7,7 +7,7 @@ const app = express();
 // Lista de origens permitidas
 const allowedOrigins = [
   'http://localhost:3000',
-  "https://todo-list-gray-phi-71.vercel.app/" // Adicione seu domínio da Vercel aqui
+  "frontend-delta-topaz.vercel.app" // Adicione seu domínio da Vercel aqui
 ];
 
 // Configuração CORS
