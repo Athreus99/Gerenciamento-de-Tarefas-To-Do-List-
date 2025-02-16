@@ -7,7 +7,7 @@ const app = express();
 // Lista de origens permitidas
 const allowedOrigins = [
   'http://localhost:3000',
-  'frontend-bay-three-92.vercel.app'  // Adicione seu domínio da Vercel aqui
+  'frontend-alpha-two-11.vercel.app'  // Adicione seu domínio da Vercel aqui
 ];
 
 // Configuração CORS
