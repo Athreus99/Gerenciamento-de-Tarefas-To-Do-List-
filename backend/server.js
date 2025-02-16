@@ -4,26 +4,37 @@ const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
-// Configuração CORS para produção
+// Lista de origens permitidas
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://todo-list-nine-kappa-57.vercel.app'  // Adicione seu domínio da Vercel aqui
+];
+
+// Configuração CORS
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000'
-  }));
-  
-  app.use(express.json());
-  
-// Middleware
-app.use(cors());
+  origin: function(origin, callback) {
+    // Permitir requisições sem origem (como apps mobile)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'A política CORS para este site não permite acesso da origem especificada.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
+
 app.use(express.json());
 
-// Array para armazenar as tarefas
+// Resto do seu código do servidor...
 let tasks = [];
 
-// GET - Listar todas as tarefas
 app.get('/api/tasks', (req, res) => {
   res.json(tasks);
 });
 
-// POST - Criar nova tarefa
 app.post('/api/tasks', (req, res) => {
   const { title } = req.body;
   
@@ -42,7 +53,6 @@ app.post('/api/tasks', (req, res) => {
   res.status(201).json(newTask);
 });
 
-// PUT - Atualizar tarefa
 app.put('/api/tasks/:id', (req, res) => {
   const { id } = req.params;
   const { completed } = req.body;
@@ -61,7 +71,6 @@ app.put('/api/tasks/:id', (req, res) => {
   res.json(tasks[taskIndex]);
 });
 
-// DELETE - Deletar tarefa
 app.delete('/api/tasks/:id', (req, res) => {
   const { id } = req.params;
   
