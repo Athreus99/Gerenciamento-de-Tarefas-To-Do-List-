@@ -18,4 +18,4 @@ Bem-vindo ao Gerenciador de Tarefas! Este é um aplicativo simples para gerencia
 
 ## Dominio do projeto
 
-https://todo-list-nine-kappa-57.vercel.app/
+
