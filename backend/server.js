@@ -7,7 +7,7 @@ const app = express();
 // Lista de origens permitidas
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://frontend-nine-phi-54.vercel.app/'  // Adicione seu domínio da Vercel aqui
+  'https://gerenciamento-de-tarefas-to-do-list.vercel.app'  // Adicione seu domínio da Vercel aqui
 ];
 
 // Configuração CORS
